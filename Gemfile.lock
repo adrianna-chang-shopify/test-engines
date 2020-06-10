@@ -4,6 +4,18 @@ PATH
     gestalt_engine (0.1.0)
       railties
 
+PATH
+  remote: domain
+  specs:
+    domain (0.1.0)
+      rails
+
+PATH
+  remote: graphql
+  specs:
+    graphql (0.1.0)
+      rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -207,7 +219,9 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
+  domain!
   gestalt_engine!
+  graphql!
   jbuilder (~> 2.7)
   listen (~> 3.2)
   puma (~> 4.1)
