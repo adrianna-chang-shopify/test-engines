@@ -1,3 +1,9 @@
+PATH
+  remote: ../gestalt_engines
+  specs:
+    gestalt_engine (0.1.0)
+      railties
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -201,6 +207,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
+  gestalt_engine!
   jbuilder (~> 2.7)
   listen (~> 3.2)
   puma (~> 4.1)
