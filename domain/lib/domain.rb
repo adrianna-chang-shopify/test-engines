@@ -1,3 +1,5 @@
+puts "-- Loading domain --"
+
 require "domain/engine"
 
 module Domain

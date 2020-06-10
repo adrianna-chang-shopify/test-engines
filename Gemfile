@@ -55,5 +55,20 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'graphql', path: 'graphql'
-gem 'domain', path: 'domain'
+# gem 'graphql', path: 'graphql'
+# gem 'domain', path: 'domain'
+
+# If we've cd'ed into an engine dir, set the engine ENV VAR so we load only that engine and its dependencies
+if ENV["ENGINE"].nil?
+  ENV["ENGINE"] = Dir.pwd.split("/")[-1] if Dir.glob("lib/*/engine.rb").any?
+end
+
+# Load gems + deps based on what directory we're in
+Dir.glob(File.expand_path("../*", __FILE__))
+  .select { |d| Dir.glob(File.join(d, "lib", "*", "engine.rb")).any? }
+  .each do |path|
+    engine = path.split("/")[-1]
+    required = (ENV["ENGINE"].nil? || ENV["ENGINE"] == engine)
+    puts "#{engine} required from main app: #{required}"
+    gem engine, :path => engine, :require => required
+  end

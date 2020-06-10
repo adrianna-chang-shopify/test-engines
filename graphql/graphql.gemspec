@@ -19,6 +19,7 @@ Gem::Specification.new do |spec|
   spec.metadata["changelog_uri"] = "https://github.com/shopify//blob/master/CHANGELOG.md"
 
   spec.add_dependency "rails"
+  spec.add_dependency "domain"
 
   spec.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 end

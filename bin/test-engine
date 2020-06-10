@@ -1,0 +1,2 @@
+#! /bin/bash
+ENGINE=$1 bin/rails test -b "$1/test/**/*_test.rb"
